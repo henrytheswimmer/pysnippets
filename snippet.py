@@ -33,3 +33,11 @@ class Snippet:
 
     def delete(self):
         CODE_SNIPPETS.remove(self)
+
+class SnippetNotFoundError(Exception):
+    def __init__(self, message):
+        self.message = message
+        super().__init__(message)
+
+    def __str__(self) -> str:
+        return f"Snippet not found: {self.message}"
